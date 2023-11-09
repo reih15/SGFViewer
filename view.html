@@ -1,0 +1,20 @@
+<!-- This project uses the WGo.js library (https://github.com/waltheri/wgo.js/) for displaying Go boards. WGo.js is licensed under the MIT License. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SGF Viewer</title>
+    <script type="text/javascript" src="wgo.min.js"></script>
+    <script type="text/javascript" src="wgo.player.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="wgo.player.css" />
+  </head>
+  <body>
+    <div id="board" style="max-width: 75vw; max-height: 95vh">Sorry, your browser doesn't support WGo.js.</div>
+    <script>
+      const url = new URL(window.location.href);
+      const sgf = url.searchParams.get("sgf");
+      const board = new WGo.BasicPlayer(document.getElementById("board"), { sgf: sgf });
+    </script>
+  </body>
+</html>
